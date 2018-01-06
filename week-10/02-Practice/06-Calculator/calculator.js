@@ -10,7 +10,8 @@ var operator = process.argv[2];
 var num1 = process.argv[3];
 var num2 = process.argv[4];
 
-if (num1 === num2) {
+//Working progess
+if (operator === "add") {
 	console.log('True');
 }
 else {
