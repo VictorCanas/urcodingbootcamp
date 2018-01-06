@@ -4,6 +4,9 @@
 
 //fs = file system
 
+//Documentation
+//https://nodejs.org/api/fs.html#fs_fs_readfile_path_options_callback
+
 var fs = require("fs");
 
 fs.readFile("movies.txt", "utf8", (err, data) => {
