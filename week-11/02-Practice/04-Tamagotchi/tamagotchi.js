@@ -8,6 +8,7 @@ function DigitalPal(hungry, sleepy, bored, age) {
   this.age = 0;   
   };
 
+  //boolean it checks whether true 
   this.feed = function() {
   if (this.hungry === true) {
     console.log("That was yummy!");
@@ -44,11 +45,12 @@ this.play = function() {
 
 this.increaseAge = function() {
   this.age++;
-  consolelog("Happy Birthday to me! I am " + age + " old!")
+  consolelog("Happy Birthday to me! I am " + this.age + " old!")
 }
 
+var animals = {};
 
-var dog = new DigitalPal();
+var animals.dog = new DigitalPal();
 var cat = new DigitalPal();
 
 dog.outside = false;
@@ -58,4 +60,13 @@ dog.bark = function() {
 dog.goOutside = function() {
   if ()
 }
+
+
+
+// take input with process.argv
+var animal == process.argv[2];
+var method == process.argv[2];
+
+animals[animal][method]();
+
 
