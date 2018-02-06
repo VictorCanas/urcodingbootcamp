@@ -1,3 +1,5 @@
+//Express calculator
+
 // Dependencies
 var express = require("express");
 
@@ -7,7 +9,7 @@ var app = express();
 // Routes
 // What routes do you need to have? Which ones are optional?
 // TODO Add your routes here
-app.get("", function(req, res) {
+app.get("/:operator/:num1/:num2", function(req, res) {
 
   // TODO parse out the variables from the request
   // Parameters are received from the URL
