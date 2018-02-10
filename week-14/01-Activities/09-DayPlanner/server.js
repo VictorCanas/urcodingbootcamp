@@ -18,7 +18,7 @@ var mysql = require("mysql");
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "",
+  password: "Vic09865",
   database: "day_planner_db"
 });
 
