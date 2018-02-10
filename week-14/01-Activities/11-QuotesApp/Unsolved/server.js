@@ -33,6 +33,45 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId);
 });
 
+//Need get, put, and delete method
+app.get("/", function(req, res) {
+  connection.query("SELECT * FROM quotes;", function(err, data) {
+    if (err) {
+      return res.status(500).end();
+    }
+
+    //looping through data 
+    res.render("index", { quotes: data });
+  });
+});
+
+
+//get 
+app.get("/:id", function(req, res) {
+  connection.query("SELECT * FROM quotes where id = ?", function(err, data) {
+    if (err) {
+      return res.status(500).end();
+    }
+
+    console.log(data)
+    res.render("single-quote", data[0] });
+  });
+});
+
+//post
+app.post("/:id", function(req, res) {
+  connection.query("SELECT * FROM quotes where id = ?", function(err, data) {
+    if (err) {
+      return res.status(500).end();
+    }
+
+    res.render("single-quote", { single-quote: data[0] });
+  });
+});
+
+
+
+
 // Express and MySQL code should go here.
 
 app.listen(port, function() {
