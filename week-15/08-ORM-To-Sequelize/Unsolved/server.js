@@ -4,6 +4,7 @@
 // ******************************************************************************
 // *** Dependencies
 // =============================================================
+var db = require("./models");
 var express = require("express");
 var bodyParser = require("body-parser");
 
@@ -24,10 +25,12 @@ app.use(express.static("public"));
 
 // Routes
 // =============================================================
-require("./routes/api-routes.js")(app);
+//require("./routes/api-routes.js")(app);
 
 // Starting our Express app
 // =============================================================
-app.listen(PORT, function() {
-  console.log("App listening on PORT " + PORT);
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
 });

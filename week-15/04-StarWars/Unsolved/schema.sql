@@ -16,4 +16,5 @@ CREATE TABLE `allcharacters` (
 	`age` Int(11) NOT NULL,
 	`forcePoints` Int(11) NOT NULL,
 
-	PRIMARY KEY ( `id` ) ); /* Set ID as primary key */
+	PRIMARY KEY ( `id` ) 
+); /* Set ID as primary key */

@@ -14,14 +14,30 @@ module.exports = function(app) {
 
   // GET route for getting all of the todos
   app.get("/api/todos", function(req, res) {
+    db.Todo.findAll({}).then(function(results) {
+      // results are available to us inside the .then
+      res.json(results);
+    });
     // Write code here to retrieve all of the todos from the database and res.json them
     // back to the user
   });
+
+
 
   // POST route for saving a new todo. We can create todo with the data in req.body
   app.post("/api/todos", function(req, res) {
     // Write code here to create a new todo and save it to the database
     // and then res.json back the new todo to the user
+    console.log("Todo Data:");
+    console.log(req.body);
+
+    db.Todo.create({
+      text: req.body.text,
+      complete: req.body.complete,
+    }).then(function(results) {
+      // `results` here would be the newly created chirp
+      res.end();
+    });
 
   });
 

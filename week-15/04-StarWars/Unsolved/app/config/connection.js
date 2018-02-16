@@ -11,7 +11,7 @@ var source = {
     port: 3306,
     host: "localhost",
     user: "root",
-    password: "password",
+    password: "Vic09865",
     database: "starwars"
   }
 };
