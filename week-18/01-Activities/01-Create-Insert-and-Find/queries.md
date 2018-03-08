@@ -61,4 +61,9 @@ db.places.find({"country": "Morocco"})
 db.places.find({_id:[COPY AN OBJECTID FROM THE PREVIOUS FIND RESULTS]})
 ```
 
-* Example: `db.places.find({_id: ObjectId("5416fe1d94bcf86cd785439036")})`
+* Example: `db.places.find({_id: ObjectId("5416fe1d94bcf86cd785439036
+
+
+```
+show collection
+```

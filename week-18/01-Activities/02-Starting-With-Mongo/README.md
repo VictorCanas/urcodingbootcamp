@@ -12,9 +12,19 @@ A. Use the command line to create a classroom database. Insert entries for yours
 B. Use find commands to get:
 
 1. A list of everyone in your row.
+
+
 2. An entry for a single person.
+
+
 3. The entries for all the Mac users in your row. 
+
+//no quotes on numbers 
 
 ### BONUS
 
 If you finish early, check out the MongoDB documentation and figure out how to find users by an entry in an array.
+
+db.classroom.insert({"name": "Kevin", "Row":1, "OS":"Mac", "Hobbies": ["Reading", "Writing"]})
+
+db.classroom.insertMany([{"name": "Kevin", "Row":1, "OS":"Mac", "Hobbies": ["Reading", "Writing"]}, {"name": "Michael", "Row":2, "OS":"Mac", "Hobbies": ["Reading", "Writing"] ) 
