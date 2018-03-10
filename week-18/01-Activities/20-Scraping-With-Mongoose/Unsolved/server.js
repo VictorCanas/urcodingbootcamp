@@ -75,6 +75,15 @@ app.get("/scrape", function(req, res) {
 // Route for getting all Articles from the db
 app.get("/articles", function(req, res) {
   // TODO: Finish the route so it grabs all of the articles
+    db.Article.find({})
+    .then(function(dbArticle) {
+      // If all articles are successfully found, send them back to the client
+      res.json(dbArticle);
+    })
+    .catch(function(err) {
+      // If an error occurs, send the error back to the client
+      res.json(err);
+    });
 });
 
 // Route for grabbing a specific Article by id, populate it with it's note

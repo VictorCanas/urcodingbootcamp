@@ -53,6 +53,8 @@ db.places.remove({"country":"Morocco"})
 db.places.remove({})
 ```
 
+remove things by id
+
 * Show how to drop a collection with `db.[COLLECTION_NAME].drop()`
 
 ```

@@ -13,6 +13,7 @@ var app = express();
 
 // Configure middleware
 
+
 // Use morgan logger for logging requests
 app.use(logger("dev"));
 // Use body-parser for handling form submissions
@@ -89,12 +90,23 @@ app.post("/submit", function(req, res) {
 
 // Route to see what user looks like WITH populating
 app.get("/populateduser", function(req, res) {
+  // console.log("here")
+  db.User.find({})
+    //
+    .populate("notes")
+    .then(function(dbNote){
+      res.json(dbNote);
+    })
+    .catch(function(err){
+      res.json(err);
+    })
   // TODO
   // =====
   // Write the query to grab the documents from the User collection,
   // and populate them with any associated Notes.
   // TIP: Check the models out to see how the Notes refers to the User
 });
+
 
 // Start the server
 app.listen(PORT, function() {

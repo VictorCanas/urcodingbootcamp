@@ -7,7 +7,7 @@ var Schema = mongoose.Schema;
 // This is similar to a Sequelize model
 var UserSchema = new Schema({
 
- username: {
+  username: {
     type: String,
     trim: true,
     required: "String is Required"
@@ -17,7 +17,7 @@ var UserSchema = new Schema({
     type: String,
     validate: [
       // Function takes in the new `password` value to be saved as an argument
-      function(input) {
+      function (input) {
         // If this returns true, proceed. If not, return the error message below
         return input.length >= 6;
       },
@@ -28,6 +28,7 @@ var UserSchema = new Schema({
 
   email: {
     type: String,
+    unique: "Email must be unique!"
     match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
   },
 
@@ -35,7 +36,7 @@ var UserSchema = new Schema({
     type: Date,
     default: Date.now
   }
-  /* TODO:
+  /* 
    * Add four entries into our schema. These should be:
    *
 

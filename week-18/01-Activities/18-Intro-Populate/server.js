@@ -49,7 +49,11 @@ app.post("/submit", function(req, res) {
       // If a Book was created successfully, find one library (there's only one) and push the new Book's _id to the Library's `books` array
       // { new: true } tells the query that we want it to return the updated Library -- it returns the original by default
       // Since our mongoose query returns a promise, we can chain another `.then` which receives the result of the query
-      return db.Library.findOneAndUpdate({}, { $push: { books: dbBook._id } }, { new: true });
+      return db.Library.findOneAndUpdate(
+        {}, { $push: { books: dbBook._id } }, 
+        //return the thing I updated after i updated
+        //wait unitl everything is updated and then return it
+        { new: true });
     })
     .then(function(dbLibrary) {
       // If the Library was updated successfully, send it back to the client
