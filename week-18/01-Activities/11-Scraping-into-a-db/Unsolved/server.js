@@ -39,6 +39,20 @@ app.get("/", function(req, res) {
 // from the scrapedData collection as a json (this will be populated
 // by the data you scrape using the next route)
 
+app.get("/all", function(req, res) {
+  // Query: In our database, go to the animals collection, then "find" everything
+  db.scrapedData.find({}, function(error, found) {
+    // Log any errors if the server encounters one
+    if (error) {
+      console.log(error);
+    }
+    // Otherwise, send the result of this query to the browser
+    else {
+      res.json(found);
+    }
+  });
+});
+
 // Route 2
 // =======
 // When you visit this route, the server will
@@ -47,6 +61,44 @@ app.get("/", function(req, res) {
 // TIP: Think back to how you pushed website data
 // into an empty array in the last class. How do you
 // push it into a MongoDB collection instead?
+
+app.get("/scraper", function(req, res) {
+
+  request("http://caracol.com.co/", function(error, response, html) {
+
+  // Load the HTML into cheerio and save it to a variable
+  // '$' becomes a shorthand for cheerio's selector commands, much like jQuery's '$'
+  var $ = cheerio.load(html);
+
+  // An empty array to save the data that we'll scrape
+  var results = [];
+
+  // Select each element in the HTML body from which you want information.
+  // NOTE: Cheerio selectors function similarly to jQuery's selectors,
+  // but be sure to visit the package's npm page to see how it works
+  $("h2.destacado").each(function(i, element) {
+
+    var link = $(element).children().attr("href");
+    var title = $(element).children().text();
+
+    //var link = $(element).find("a").attr("href");
+    //var title = $(element).find("a").text();
+
+    // Save these results in an object that we'll push into the results array we defined earlier
+    results.push({
+      title: title,
+      link: link
+    });
+  });
+
+  // Log the results once you've looped through each of the elements found with cheerio
+  console.log(results);
+});
+});
+
+
+// Make a request call to grab the HTML body from the site of your choice
+
 
 /* -/-/-/-/-/-/-/-/-/-/-/-/- */
 
