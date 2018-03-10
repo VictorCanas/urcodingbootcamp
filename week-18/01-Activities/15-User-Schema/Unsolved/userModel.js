@@ -6,6 +6,35 @@ var Schema = mongoose.Schema;
 // Using the Schema constructor, create a new UserSchema object
 // This is similar to a Sequelize model
 var UserSchema = new Schema({
+
+ username: {
+    type: String,
+    trim: true,
+    required: "String is Required"
+  },
+
+  password: {
+    type: String,
+    validate: [
+      // Function takes in the new `password` value to be saved as an argument
+      function(input) {
+        // If this returns true, proceed. If not, return the error message below
+        return input.length >= 6;
+      },
+      // Error Message
+      "Password should be at least 6 characters."
+    ]
+  },
+
+  email: {
+    type: String,
+    match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
+  },
+
+  userCreated: {
+    type: Date,
+    default: Date.now
+  }
   /* TODO:
    * Add four entries into our schema. These should be:
    *

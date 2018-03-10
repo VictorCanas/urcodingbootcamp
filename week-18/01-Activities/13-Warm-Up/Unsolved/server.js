@@ -46,22 +46,50 @@ app.post("/submit", function(req, res) {
   // we have to do it here, because the ajax post will convert it
   // to a string instead of a boolean
   book.read = false;
+  // console log this book so it's send to CLI
+  console.log(book);
+
+  db.books.insert(book, function(err, dbBook){
+    res.json(dbBook);
+  })
+
 });
 
 // Find all books marked as read
-app.get("/read", function(req, res) {});
+app.get("/read", function(req, res) {
+  db.books.find({ read:true }, function(err, dbBooks) {
+      res.json(dbBooks);
+  });
+});
+
 
 // Find all books marked as unread
-app.get("/unread", function(req, res) {});
+app.get("/unread", function(req, res) {
+  db.books.find({ read:false }, function(err, dbBooks) {
+      res.json(dbBooks);
+  });
+});
 
 // Mark a book as having been read
 app.get("/markread/:id", function(req, res) {
+    db.books.update(
+      { _id: mongojs.ObjectId(req.params.id), 
+      { $set: { read: true } }, 
+      function(err, dbBook) {
+      res.json(dbBook);
+    }
   // Remember: when searching by an id, the id needs to be passed in
   // as (mongojs.ObjectId(IDYOUWANTTOFIND))
 });
 
 // Mark a book as having been not read
 app.get("/markunread/:id", function(req, res) {
+  db.books.update(
+      { _id: mongojs.ObjectId(req.params.id), 
+      { $et: { read: false} }, 
+      function(err, dbBook) {
+      res.json(dbBook);
+    }
   // Remember: when searching by an id, the id needs to be passed in
   // as (mongojs.ObjectId(IDYOUWANTTOFIND))
 });
