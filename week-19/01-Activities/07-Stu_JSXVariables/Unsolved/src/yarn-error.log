@@ -1,0 +1,32 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn start
+
+PATH: 
+  /Users/mymacbookpro/.rbenv/shims:/Users/mymacbookpro/.rbenv/shims:/Users/mymacbookpro/.rbenv/shims:/Users/mymacbookpro/.rbenv/shims:/Users/mymacbookpro/.rbenv/shims:/Users/mymacbookpro/.rbenv/shims:/Users/mymacbookpro/.rbenv/shims:/Users/mymacbookpro/.rbenv/shims:/Users/mymacbookpro/.rbenv/shims:/Users/mymacbookpro/.rbenv/shims:/Users/mymacbookpro/.rbenv/shims:/Users/mymacbookpro/.rbenv/shims:/Users/mymacbookpro/.rbenv/shims:/Users/mymacbookpro/.rbenv/shims:/Users/mymacbookpro/.rvm/gems/ruby-2.4.0/bin:/Users/mymacbookpro/.rvm/gems/ruby-2.4.0@global/bin:/Users/mymacbookpro/.rvm/rubies/ruby-2.4.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/mymacbookpro/.rvm/bin
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  6.10.0
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: Couldn't find a package.json file in "/Users/mymacbookpro/Desktop/urcodingbootcamp/week-19/01-Activities/07-Stu_JSXVariables/Unsolved/src"
+      at MessageError.Error (native)
+      at new MessageError (/usr/local/lib/node_modules/yarn/lib/cli.js:186:110)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:40048:15
+      at next (native)
+      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:98:30)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:109:13
