@@ -1,11 +1,11 @@
 import React from "react";
 
 const styles = {
-  nav: {
+  panel: {
     margin: 20,
     background: "#e8eaf6"
   },
-  navHeading: {
+  heading: {
     background: "#9a74db",
     minHeight: 50,
     lineHeight: 3.5,
@@ -16,8 +16,8 @@ const styles = {
 };
 
 const Navbar = () => (
-  <div style={styles.nav}>
-    <div style={styles.navHeading}>Home</div>
+  <div style={styles.panel}>
+    <div style={styles.heading}>Home</div>
   </div>
 );
 

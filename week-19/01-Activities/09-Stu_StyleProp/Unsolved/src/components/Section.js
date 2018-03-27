@@ -1,19 +1,9 @@
 import React from "react";
-//import "../styles/Section.css";
+import "../styles/Section.css";
 
 // By importing the Section.css file, it is added to the DOM whenever this component loads
-
-//inline styles
-const styles = {
-  section: {
-    backgroundColor: 'orange',
-    padding: "20px",
-    textAlign: "center",
-  }
-}
-
 const Section = () => (
-  <div style={styles.section}>
+  <section className="section">
     <h2>Lorem Ipsum Dolor Sit Amet</h2>
     <p>
       Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
@@ -52,7 +42,7 @@ const Section = () => (
       tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias
       consequatur aut perferendis doloribus asperiores repellat.
     </p>
-  </div>
+  </section>
 );
 
 export default Section;
